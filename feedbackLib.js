@@ -19,6 +19,16 @@ function getAll() {
   return feedbackArray;
 }
 
+function findById(id) {
+  const feedback = feedbackArray.find((item) => item.id == id);
+
+  if (feedback) {
+    return feedback;
+  }
+
+  return false;
+}
+
 if (require.main === module) {
   const result = addOne(
     "John Smith",
@@ -34,4 +44,5 @@ if (require.main === module) {
 module.exports = {
   addOne,
   getAll,
+  findById,
 };

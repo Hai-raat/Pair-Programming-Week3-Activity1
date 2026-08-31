@@ -6,7 +6,11 @@ const getAllFeedbacks = (req, res) => {
 };
 
 const createFeedback = (req, res) => {
-  res.json({ message: "Hello from createFeedback" });
+  const { sender, message, rating, platform } = req.body;
+
+  const newFeedback = Feedback.addOne(sender, message, rating, platform);
+
+  res.status(201).json(newFeedback);
 };
 
 const getFeedbackById = (req, res) => {

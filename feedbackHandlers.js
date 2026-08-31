@@ -1,3 +1,5 @@
+const Feedback = require("./feedbackLib.js");
+
 const getAllFeedbacks = (req, res) => {
   res.json({ message: "Hello from getAllFeedbacks" });
 };

@@ -55,6 +55,22 @@ function update(id, updatedData) {
   return false;
 }
 
+function deleteOne(id) {
+  const feedback = findById(id);
+
+  if (feedback) {
+    const initialLength = feedbackArray.length;
+
+    feedbackArray = feedbackArray.filter(
+      (item) => item.id != id
+    );
+
+    return feedbackArray.length < initialLength;
+  }
+
+  return false;
+}
+
 if (require.main === module) {
   const result = addOne(
     "John Smith",
@@ -72,4 +88,5 @@ module.exports = {
   getAll,
   findById,
   update,
+  deleteOne,
 };

@@ -29,6 +29,32 @@ function findById(id) {
   return false;
 }
 
+function update(id, updatedData) {
+  const feedback = findById(id);
+
+  if (feedback) {
+    if (updatedData.sender) {
+      feedback.sender = updatedData.sender;
+    }
+
+    if (updatedData.message) {
+      feedback.message = updatedData.message;
+    }
+
+    if (updatedData.rating) {
+      feedback.rating = updatedData.rating;
+    }
+
+    if (updatedData.platform) {
+      feedback.platform = updatedData.platform;
+    }
+
+    return feedback;
+  }
+
+  return false;
+}
+
 if (require.main === module) {
   const result = addOne(
     "John Smith",
@@ -45,4 +71,5 @@ module.exports = {
   addOne,
   getAll,
   findById,
+  update,
 };

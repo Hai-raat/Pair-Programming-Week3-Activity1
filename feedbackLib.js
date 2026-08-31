@@ -1,5 +1,6 @@
 let feedbackArray = [];
 let nextId = 1;
+
 function addOne(sender, message, rating, platform) {
   const newFeedback = {
     id: nextId++,
@@ -13,16 +14,24 @@ function addOne(sender, message, rating, platform) {
 
   return newFeedback;
 }
+
+function getAll() {
+  return feedbackArray;
+}
+
 if (require.main === module) {
   const result = addOne(
     "John Smith",
     "Great session on React components!",
     5,
-    "mobile"
+    "mobile",
   );
+  addOne("Anna Brqown", "Very useful examples.", 4, "desktop");
 
   console.log(result);
+  console.log(getAll());
 }
 module.exports = {
   addOne,
+  getAll,
 };

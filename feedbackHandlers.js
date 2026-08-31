@@ -7,6 +7,9 @@ const getAllFeedbacks = (req, res) => {
 
 const createFeedback = (req, res) => {
   const { sender, message, rating, platform } = req.body;
+  if (!sender || !message || !rating || !platform) {
+    return res.status(400).json({ message: "Invalid feedback data" });
+  }
 
   const newFeedback = Feedback.addOne(sender, message, rating, platform);
 
